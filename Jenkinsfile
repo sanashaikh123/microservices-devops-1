@@ -32,8 +32,8 @@ pipeline {
         stage('Containerize And Test') {
             steps {
                 script{
-                    sh 'docker run -d  --name customize-service -e FLASK_APP=run.py sanashaikh1977/newsread-customize && sleep 10 && docker logs customize-service && docker stop customize-service'
-                    sh 'docker run -d  --name news-service -e FLASK_APP=run.py sanashaikh1977/newsread-news && sleep 10 && docker logs news-service && docker stop news-service'
+                    sh 'docker run -d  --name customize-service -e FLASK_APP=run.py 9068ec952c9c && sleep 10 && docker logs customize-service && docker stop customize-service'
+                    sh 'docker run -d  --name news-service -e FLASK_APP=run.py 453f0dfc1ad9 && sleep 10 && docker logs news-service && docker stop news-service'
                 }
             }
         }
