@@ -24,8 +24,8 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script{
-                    sh 'docker build -t kelvinskell/newsread-customize customize-service/'
-                    sh 'docker build -t kelvinskell/newsread-news news-service/'
+                    sh 'docker build -t sanashaikh1997/newsread-customize customize-service/'
+                    sh 'docker build -t sanashaikh1997/newsread-news news-service/'
             }
         }
     }
@@ -41,8 +41,8 @@ pipeline {
             steps {
                     script{
                         withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubPass')]) {
-                        sh 'docker login -u kelvinskell --password ${DockerHubPass}' }
-                        sh 'docker push kelvinskell/newsread-news && docker push kelvinskell/newsread-customize'
+                        sh 'docker login -u sanashaikh1997 --password ${DockerHubPass}' }
+                        sh 'docker push sanashaikh1997/newsread-news && docker push sanashaikh1997/newsread-customize'
                }
             }
                  
